@@ -64,9 +64,6 @@ class ConfirmBtn(MDRaisedButton):
         self.text = 'Confirm'
         self.md_bg_color = (0, 0.4, 0.7, 0.8)
 
-    def on_release(self):
-        self.send_identifier()
-
 
 class DemoApp(MDApp):
     user = None
@@ -261,13 +258,14 @@ class DemoApp(MDApp):
         self.dialog = MDDialog(title='Name Check',
                                text=f"Are you sure you want to save {self.identifier.text}?"
                                , size_hint=(0.8, 1),
-                               buttons=[ConfirmBtn()],
+                               buttons=[ConfirmBtn(on_release=self.send_identifier)],
                                )
         self.dialog.open()
 
     def dismiss(self):
-        self.dialog.dismiss()
-        self.dialog = None
+        if self.dialog:
+            self.dialog.dismiss()
+            self.dialog = None
 
     def send_identifier(self):
         print(self.identifier.text, "Sent!")
