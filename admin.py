@@ -1,10 +1,16 @@
 import socket
 import sys
 import time
+import os
+import json
 import atexit
 
-# RPi_address = ("192.168.1.229", 4236)
-RPi_address = (socket.gethostname(), 4236)
+# Get RPI (IP, port) from json file
+SECRET_PATH = os.path.join(os.getcwd(), "secret.json")
+with open(SECRET_PATH, "r") as secret:
+    RPi_address = json.load(secret)
+    RPi_address = (RPi_address["ip"], int(RPi_address["port"]))
+
 MAX_LENGTH = 1024  # Maximum length of received message
 
 BANNER = """
@@ -39,7 +45,7 @@ class Admin:
         # Create socket object, connect to RPi, and prompt Admin to send commands.
         # User input should be a number from 1 to 4.
         self.gui = gui  # To indicate if called by GUI or Terminal
-        if not gui:
+        if not self.gui:
             print(BANNER)
 
         self.commands = {
@@ -65,12 +71,14 @@ class Admin:
             # will be stuck here until an Admin ID is scanned, followed by a new student ID scanned.
             try:
                 self.admin.connect(RPi_address)
-                print("Connection Successful!")
+                if not self.gui:
+                    print("Connection Successful!")
                 return
             except ConnectionRefusedError:
-                print("Could not establish connection. Make sure the Cabinet is in Admin Mode")
-                print("Retrying...")
-                print()
+                if not self.gui:
+                    print("Could not establish connection. Make sure the Cabinet is in Admin Mode")
+                    print("Retrying...")
+                    print()
                 time.sleep(1)
                 continue
 

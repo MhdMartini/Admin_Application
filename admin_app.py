@@ -1,3 +1,4 @@
+import os
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivymd.app import MDApp
@@ -13,9 +14,13 @@ from auto_complete import AutoComplete
 import concurrent.futures
 
 Config.set('kivy', 'exit_on_escape', '0')
+Config.set('graphics', 'position', 'custom')
+Config.set('graphics', 'top',  100)
+Config.set('graphics', 'left', 20)
 
-Window.size = (500, 900)
-Config.set('graphics', 'resizable', 1)
+
+Window.size = (450, 810)
+Config.set('graphics', 'resizable', 0)
 Config.write()
 
 SUGG_COLOR = (0.5, 0.78, 0.95, 1)
@@ -24,8 +29,9 @@ ALLOWED_CHARS = string.ascii_lowercase + " ,.'1234567890_-+*"
 
 
 def find_roster():
+    roster_path = os.path.join(os.getcwd(), "roster.csv")
     try:
-        roster = pd.read_csv("roster.csv")
+        roster = pd.read_csv(roster_path)
     except FileNotFoundError:
         return False, []
 
