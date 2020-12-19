@@ -62,7 +62,7 @@ ScreenManager:
                 pos_hint: {"center_y": 0.8, "center_x": 0.5}
                 size_hint: (None, None)
                 size: dp(100), dp(100)
-                user_font_size: "50sp"
+                #user_font_size: "50sp"
                 on_release: app.admin_routine("admin")
             MDFloatingActionButton:
                 elevation_normal: 12
@@ -71,7 +71,7 @@ ScreenManager:
                 pos_hint: {"center_y": 0.55, "center_x": 0.5}
                 size_hint: (None, None)
                 size: dp(100), dp(100)
-                user_font_size: "50sp"
+                #user_font_size: "50sp"
                 on_release: app.admin_routine("student")
             MDFloatingActionButton:
                 elevation_normal: 12
@@ -80,7 +80,7 @@ ScreenManager:
                 pos_hint: {"center_y": 0.3, "center_x": 0.5}
                 size_hint: (None, None)
                 size: dp(100), dp(100)
-                user_font_size: "50sp"
+               #user_font_size: "50sp"
                 on_release: app.admin_routine("shoebox")  
 
             MDLabel:

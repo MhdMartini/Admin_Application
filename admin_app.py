@@ -14,10 +14,6 @@ from auto_complete import AutoComplete
 import concurrent.futures
 
 Config.set('kivy', 'exit_on_escape', '0')
-Config.set('graphics', 'position', 'custom')
-Config.set('graphics', 'top',  100)
-Config.set('graphics', 'left', 20)
-
 
 Window.size = (450, 810)
 Config.set('graphics', 'resizable', 0)
@@ -35,7 +31,6 @@ def find_roster():
     except FileNotFoundError:
         return False, []
 
-    names_col = []
     first_name, last_name = None, None
     for col in roster.columns:
         if "first" in col.lower() and "name" in col.lower():
