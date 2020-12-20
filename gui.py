@@ -150,6 +150,7 @@ ScreenManager:
 
             ScrollView:
                 id: name_list
+                disabled: True
                 pos_hint: {"center_x": 0.5, "center_y": 0.47}
                 size_hint_x : 0.8
                 size_hint_y : 0
@@ -160,47 +161,24 @@ ScreenManager:
                     OneLineListItem:
                         id: name0
                         bg_color: app.theme_cls.primary_light
-                        on_release:
-                            #app.shrink_suggestions()
-                            identifier.text = self.text
-
 
                     OneLineListItem:
                         id: name1
                         bg_color: app.theme_cls.primary_light
-                        on_release:
-                            #app.shrink_suggestions()
-                            identifier.text = self.text
-                        on_touch_down:
-                            pass
 
                     OneLineListItem:
                         id: name2
                         bg_color: app.theme_cls.primary_light
-                        on_release:
-                            #app.shrink_suggestions()
-                            identifier.text = self.text
-                        on_touch_down:
-                            pass
 
                     OneLineListItem:
                         id: name3
                         bg_color: app.theme_cls.primary_light
                         text_color: 1,1,1,1
-                        on_release:
-                            #app.shrink_suggestions()
-                            identifier.text = self.text
-                        on_touch_down:
-                            pass
 
                     OneLineListItem:
                         id: name4
                         bg_color: app.theme_cls.primary_light
-                        on_release:
-                            #app.shrink_suggestions()
-                            identifier.text = self.text
-                        on_touch_down:
-                            pass
+
 
             MDSpinner:
                 id: spinner
