@@ -60,24 +60,27 @@ ScreenManager:
                 icon: "account-plus"
                 md_bg_color: 0, 0.4, 0.7, 1
                 pos_hint: {"center_y": 0.8, "center_x": 0.5}
-                size_hint: (0.24, 0.133)
-                user_font_size: "60sp"
+                size_hint: (None, None)
+                size: dp(100), dp(100)
+                #user_font_size: "50sp"
                 on_release: app.admin_routine("admin")
             MDFloatingActionButton:
                 elevation_normal: 12
                 icon: "account-multiple-plus"
                 md_bg_color: 0, 0.4, 0.7, 0.6
                 pos_hint: {"center_y": 0.55, "center_x": 0.5}
-                size_hint: (0.24, 0.133)
-                user_font_size: "60sp"
+                size_hint: (None, None)
+                size: dp(100), dp(100)
+                #user_font_size: "50sp"
                 on_release: app.admin_routine("student")
             MDFloatingActionButton:
                 elevation_normal: 12
                 icon: "barcode-scan"
                 md_bg_color: 0, 0.4, 0.7, 0.4
                 pos_hint: {"center_y": 0.3, "center_x": 0.5}
-                size_hint: (0.24, 0.133)
-                user_font_size: "60sp"
+                size_hint: (None, None)
+                size: dp(100), dp(100)
+               #user_font_size: "50sp"
                 on_release: app.admin_routine("shoebox")  
 
             MDLabel:
@@ -158,33 +161,46 @@ ScreenManager:
                         id: name0
                         bg_color: app.theme_cls.primary_light
                         on_release:
+                            #app.shrink_suggestions()
                             identifier.text = self.text
-                            #name_list.size_hint_y = 0
+
+
                     OneLineListItem:
                         id: name1
                         bg_color: app.theme_cls.primary_light
                         on_release:
+                            #app.shrink_suggestions()
                             identifier.text = self.text
-                            #name_list.size_hint_y = 0
+                        on_touch_down:
+                            pass
+
                     OneLineListItem:
                         id: name2
                         bg_color: app.theme_cls.primary_light
                         on_release:
+                            #app.shrink_suggestions()
                             identifier.text = self.text
-                            #name_list.size_hint_y = 0
+                        on_touch_down:
+                            pass
+
                     OneLineListItem:
                         id: name3
                         bg_color: app.theme_cls.primary_light
                         text_color: 1,1,1,1
                         on_release:
+                            #app.shrink_suggestions()
                             identifier.text = self.text
-                            #name_list.size_hint_y = 0
+                        on_touch_down:
+                            pass
+
                     OneLineListItem:
                         id: name4
                         bg_color: app.theme_cls.primary_light
                         on_release:
+                            #app.shrink_suggestions()
                             identifier.text = self.text
-                            #name_list.size_hint_y = 0
+                        on_touch_down:
+                            pass
 
             MDSpinner:
                 id: spinner
