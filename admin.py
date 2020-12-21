@@ -144,7 +144,10 @@ class Admin:
         sys.exit(0)
 
     def exit_handler(self):
-        self.close()
+        try:
+            self.close()
+        except OSError:
+            pass
 
 
 if __name__ == '__main__':
