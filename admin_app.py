@@ -25,6 +25,7 @@ ALLOWED_CHARS = string.ascii_lowercase + " ,.'1234567890_-+*"
 
 
 def find_roster():
+    # Look for a Students Roster. If found, return a list of students' names
     roster_path = os.path.join(os.getcwd(), "roster.csv")
     try:
         roster = pd.read_csv(roster_path)
@@ -81,7 +82,7 @@ class DemoApp(MDApp):
     index = 0
     menu_items = []
     original_input = ""
-    received = False  # TODO: Manage
+    received = False
 
     def build(self):
         self.theme_cls.primary_palette = "Gray"
