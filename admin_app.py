@@ -268,7 +268,7 @@ class DemoApp(MDApp):
             self.dialog.dismiss()
             self.dialog = None
 
-    def send_identifier(self):
+    def send_identifier(self, *args):
         print(self.identifier.text, "Sent!")
         self.dismiss()
         name = self.identifier.text.strip()
